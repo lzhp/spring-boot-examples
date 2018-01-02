@@ -35,7 +35,9 @@ mvn test
 
 
 ## Author
-lizhipeng@gmail.com
+
+* ityouknow@126.com
+* lizhipeng@gmail.com
 
 
 
