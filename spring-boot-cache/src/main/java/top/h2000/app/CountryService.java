@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.google.common.collect.Iterables;
+import lombok.extern.slf4j.Slf4j;
 import top.h2000.utils.CustomBussinessRuntimeException;
 
 /**
@@ -14,18 +15,19 @@ import top.h2000.utils.CustomBussinessRuntimeException;
  */
 @Service
 @Transactional
+@Slf4j
 public class CountryService {
 
   @Autowired
   private CountryRepository repo;
 
-
   /**
    * 得到一个country
-   * @Description: 斯蒂芬司法   
+   * 
+   * @Description: 斯蒂芬司法
    *
-   * Date: 2018-03-21 09:32:38 
-   * @author lizhipeng 
+   *               Date: 2018-03-21 09:32:38
+   * @author lizhipeng
    *
    * @param code
    * @return
@@ -37,20 +39,21 @@ public class CountryService {
     return Iterables.find(countryList, country -> country.getCode().equals(code), null);
 
   }
-  
+
   /**
    * 测试错误
-   * @Description: 
+   * 
+   * @Description:
    *
-   * Date: 2018-03-21 09:34:15 
-   * @author lizhipeng 
+   *               Date: 2018-03-21 09:34:15
+   * @author lizhipeng
    *
    */
   @Transactional(readOnly = true)
   public void getError() {
 
-      throw new CustomBussinessRuntimeException("123", "some error");
-  }  
+    throw new CustomBussinessRuntimeException("123", "some error");
+  }
 
   public Iterable<Country> getCountryBeginWith(String code) {
     Iterable<Country> countryList = repo.findAll();
@@ -61,11 +64,16 @@ public class CountryService {
   public Iterable<Country> getAll() {
     return repo.findAll();
   }
-  
+
   @Transactional
   public Iterable<Country> writeData(Iterable<Country> list) {
-    repo.saveAll(list);
+    try {
+      repo.saveAll(list);
+    } catch (Exception e) {
+      log.error("from service", e);
+      throw(e);
+    }
     return repo.findAll();
-  }  
+  }
 }
 

@@ -1,4 +1,4 @@
-package top.h2000;
+package top.h2000.app;
 
 import java.util.ArrayList;
 import org.hamcrest.MatcherAssert;
@@ -7,7 +7,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.orm.ObjectOptimisticLockingFailureException;
 import org.springframework.test.context.junit4.SpringRunner;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
@@ -78,16 +77,6 @@ public class CountryServiceTests {
 
     log.info("first test end");
 
-  }
-  
-  @Test(expected =Exception.class)
-  public void testException(){
-    ArrayList<Country> init = Lists.newArrayList();
-    init.add(Country.builder().code("110").description("日本").version(1L).build());
-    init.add(Country.builder().code("110").description("中国").version(1L).build());
-    init.add(Country.builder().code("116").description("香港").version(1L).build());
-    init.add(Country.builder().code("502").description("美国").version(1L).build());
-    cService.writeData(init);
   }
 
 }

@@ -1,4 +1,4 @@
-package top.h2000.utils;
+package cn.customs.h2018.sample.utils;
 
 import lombok.Getter;
 
