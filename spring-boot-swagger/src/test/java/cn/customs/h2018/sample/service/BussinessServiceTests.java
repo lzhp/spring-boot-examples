@@ -6,10 +6,7 @@
 package cn.customs.h2018.sample.service;
 
 import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,11 +14,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
-import com.google.common.collect.Maps;
 import cn.customs.h2018.sample.pojo.Entry;
 import cn.customs.h2018.sample.pojo.EntryHead;
 import cn.customs.h2018.sample.pojo.EntryList;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * Date: 2018-03-23 15:32:29.
@@ -31,7 +26,6 @@ import lombok.extern.slf4j.Slf4j;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
-@Slf4j
 public class BussinessServiceTests {
 
   

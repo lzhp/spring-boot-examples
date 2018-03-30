@@ -6,7 +6,8 @@ Spring boot cache example
 
 1. one mysql db is needed
 2. Modify db's infomation in application.properties
-3. run junit test or mvn test
+3. start the application
+4. go to http://localhost:8000/swagger-ui.html
 
 ### Prerequisites
 
