@@ -17,9 +17,11 @@ spring:
     show-sql: true
   cache:
     caffeine.spec: initialCapacity=50,maximumSize=500,expireAfterWrite=10s
-    
-    
- 
 
+management:
+  endpoints:
+    enabled-by-default: true
+    web.exposure.include: '*'
+    
 endpoints:
   sensitive: false
