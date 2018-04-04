@@ -4,7 +4,7 @@
  */  
 package top.h2000.entry;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 /**  
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
  * @description: 
  */
 @Repository
-public interface EntryListRepository extends CrudRepository<EntryList, EntryList.PkEntryList>  {
+public interface EntryListRepository extends JpaRepository<EntryList, EntryList.PkEntryList>  {
   
   Iterable<EntryList> findByEntryId(String entryId);
 

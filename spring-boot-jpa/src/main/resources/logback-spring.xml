@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 	<property name="DEV_HOME" value="c:/logs" />
-	
-	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+
+	<appender name="STDOUT"
+		class="ch.qos.logback.core.ConsoleAppender">
 		<!-- encoders are assigned the type ch.qos.logback.classic.encoder.PatternLayoutEncoder 
 			by default -->
 		<encoder>
@@ -11,24 +12,26 @@
 		</encoder>
 	</appender>
 
-	<logger name="cn.customs.h2018.*"  level="debug" additivity="false">
+	<logger name="top.h2000" level="debug" additivity="false">
 		<appender-ref ref="STDOUT" />
 	</logger>
 
 	<root level="info">
 		<appender-ref ref="STDOUT" />
 	</root>
-	
+
 	<appender name="FILE-AUDIT"
 		class="ch.qos.logback.core.rolling.RollingFileAppender">
 		<file>${DEV_HOME}/debug.log</file>
-		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+		<encoder
+			class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
 			<Pattern>
 				%d{yyyy-MM-dd HH:mm:ss} - %msg%n
 			</Pattern>
 		</encoder>
 
-		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+		<rollingPolicy
+			class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<!-- rollover daily -->
 			<fileNamePattern>${DEV_HOME}/archived/debug.%d{yyyy-MM-dd}.%i.log
 			</fileNamePattern>
