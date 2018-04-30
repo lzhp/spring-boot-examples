@@ -26,7 +26,7 @@ import lombok.NoArgsConstructor;
  * @description:
  */
 @Data
-@Entity(name="ENTRY_LIST")
+@Entity(name = "ENTRY_LIST")
 @IdClass(value = EntryList.PkEntryList.class)
 @Builder
 @NoArgsConstructor
@@ -35,30 +35,30 @@ public class EntryList implements Serializable {
 
   private static final long serialVersionUID = -7318488925582179571L;
   @Id
-  @Column(name="ENTRY_ID")
+  @Column(name = "ENTRY_ID")
   private String entryId;
-  
+
   @Id
-  @Column(name="G_NO")
+  @Column(name = "G_NO")
   private String gNo;
-  
-  @Column(name="CODE_TS")
+
+  @Column(name = "CODE_TS")
   private String codeTs;
-  
-  @Column(name="G_NAME")
-  private String gName; 
-  
+
+  @Column(name = "G_NAME")
+  private String gName;
+
   @Version
-  @Column(name="VERSION")
-  private Long version;  
-  
-  @Column(name = "CREATE_TIME", updatable=false)
+  @Column(name = "VERSION")
+  private Long version;
+
+  @Column(name = "CREATE_TIME", updatable = false)
   @CreationTimestamp
   private LocalDateTime createdTime;
 
   @Column(name = "LAST_UPDATE_TIME")
   @UpdateTimestamp
-  private LocalDateTime lastUpdateTime; 
+  private LocalDateTime lastUpdateTime;
 
   @Data
   public static class PkEntryList implements Serializable {

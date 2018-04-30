@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.google.common.base.Throwables;
@@ -51,5 +52,10 @@ public class CountryController {
   public void getCountry() {
     contryService.getError();
   }  
+  
+  @RequestMapping("/{code}")
+  public Country getCountry(@PathVariable String code) {
+    return contryService.getOne2(code);
+  } 
 }
 

@@ -9,6 +9,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import cn.customs.h2018.sample.dao.EntryHeadRepository;
 import cn.customs.h2018.sample.dao.EntryListRepository;
 import cn.customs.h2018.sample.pojo.Entry;
@@ -47,7 +48,7 @@ public class EntryService {
    * @param entry
    * @return
    */
-  public Entry save(Entry entry) {
+  public Entry save(cn.customs.h2018.sample.pojo.Entry entry) {
 
     EntryHead head = entry.getEntryHead();
     List<EntryList> lists = entry.getEntryList();

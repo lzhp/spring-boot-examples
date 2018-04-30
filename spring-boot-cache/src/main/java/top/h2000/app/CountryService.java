@@ -1,6 +1,7 @@
 package top.h2000.app;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.google.common.collect.Iterables;
@@ -39,6 +40,14 @@ public class CountryService {
     return Iterables.find(countryList, country -> country.getCode().equals(code), null);
 
   }
+  
+  @Cacheable(cacheNames = "country", key="#code")
+  @Transactional(readOnly = true)
+  public Country getOne2(String code) {
+
+    return repo.findByCode(code);
+
+  }  
 
   /**
    * 测试错误
@@ -68,7 +77,7 @@ public class CountryService {
   @Transactional
   public Iterable<Country> writeData(Iterable<Country> list) {
     try {
-      repo.saveAll(list);
+      repo.save(list);
     } catch (Exception e) {
       log.error("from service", e);
       throw(e);

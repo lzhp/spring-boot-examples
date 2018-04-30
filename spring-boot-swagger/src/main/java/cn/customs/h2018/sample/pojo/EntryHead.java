@@ -44,6 +44,9 @@ public class EntryHead {
   @Column(name="NET_WEIGHT")
   private Double netWeight;
   
+  @Column(name="OWNER_NAME")
+  private String ownerName;
+  
   @Version
   @Column(name="VERSION")
   private Long version;

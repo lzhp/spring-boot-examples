@@ -16,10 +16,13 @@ spring:
       physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     show-sql: true
   cache:
-    caffeine.spec: initialCapacity=50,maximumSize=500,expireAfterWrite=10s
-    
-    
- 
-
+    cache-names: cache1,cache2,country
+    caffeine.spec: initialCapacity=50,maximumSize=500,expireAfterWrite=100s
+   
 endpoints:
   sensitive: false
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

@@ -1,6 +1,6 @@
 # Project Title
 
-Spring boot cache example
+Spring boot jpa example
 
 ## Getting Started
 
@@ -28,7 +28,7 @@ mvn test
 
 ## 一些技术点
 1. top.h2000.app
-  - 乐观锁
+  - 乐观锁（version）
   - last_update_time 时间戳
   - create_time 时间戳
 2.  top.h2000.entry
@@ -37,6 +37,8 @@ mvn test
   * 异常测试
 4. 其他
   * List和Iterable的查询及互转 
+5. 单元测试覆盖率 
+6. cacheable不能放到接口上
   
 ## Author
 
