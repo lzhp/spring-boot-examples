@@ -11,7 +11,7 @@
 		</encoder>
 	</appender>
 
-	<logger name="cn.customs.h2018.*"  level="debug" additivity="false">
+	<logger name="cn.customs.h2018"  level="debug" additivity="false">
 		<appender-ref ref="STDOUT" />
 	</logger>
 

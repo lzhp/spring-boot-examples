@@ -14,10 +14,13 @@ import javax.persistence.IdClass;
 import javax.persistence.Version;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
  * Date: 2018-03-21 21:11:35.
@@ -40,12 +43,16 @@ public class EntryList implements Serializable {
 
   @Id
   @Column(name = "G_NO")
+  @Getter(onMethod = @__(@JsonProperty("gNo")))
+  @Setter(onMethod = @__(@JsonProperty("gNo")))
   private String gNo;
 
   @Column(name = "CODE_TS")
   private String codeTs;
 
   @Column(name = "G_NAME")
+  @Getter(onMethod = @__(@JsonProperty("gName")))
+  @Setter(onMethod = @__(@JsonProperty("gName")))
   private String gName;
 
   @Version

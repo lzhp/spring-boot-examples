@@ -20,25 +20,25 @@ public class CustomBussinessRuntimeException extends RuntimeException {
   /**
    * 业务代码
    */
-  private final String BussinessId;
+  private final String bussinessId;
 
   public CustomBussinessRuntimeException(String errorCode, String bussinessId, String message) {
     super(message);
     this.errorCode = errorCode;
-    this.BussinessId = bussinessId;
+    this.bussinessId = bussinessId;
   }
 
   public CustomBussinessRuntimeException(String errorCode, String bussinessId, Throwable cause) {
     super(cause);
     this.errorCode = errorCode;
-    this.BussinessId = bussinessId;
+    this.bussinessId = bussinessId;
   }
 
   public CustomBussinessRuntimeException(String errorCode, String bussinessId, String message,
       Throwable cause) {
     super(message, cause);
     this.errorCode = errorCode;
-    this.BussinessId = bussinessId;
+    this.bussinessId = bussinessId;
   }
 }
 

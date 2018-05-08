@@ -27,7 +27,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class EntryHead {
-  
+
   @Id
   @Column(name="ENTRY_HEAD")
   private String entryId;
