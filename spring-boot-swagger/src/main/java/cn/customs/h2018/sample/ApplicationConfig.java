@@ -5,9 +5,6 @@
  */
 package cn.customs.h2018.sample;
 
-import java.lang.reflect.WildcardType;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -15,11 +12,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.context.request.async.DeferredResult;
 import com.fasterxml.classmate.TypeResolver;
 import com.google.common.collect.Lists;
 import cn.customs.h2018.sample.utils.CustomExceptionPojo;
-import io.swagger.models.Tag;
 import springfox.bean.validators.configuration.BeanValidatorPluginsConfiguration;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;

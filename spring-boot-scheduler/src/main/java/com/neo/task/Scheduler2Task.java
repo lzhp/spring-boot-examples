@@ -14,7 +14,7 @@ public class Scheduler2Task {
   private int i = 0;
   private int j = 0;
 
-  @Scheduled(fixedRate = 3000)
+  //@Scheduled(fixedRate = 3000)
   public void reportCurrentTime() throws InterruptedException {
     System.out.println(i + "现在时间：" + LocalDateTime.now().toString() + " Thread:"
         + Thread.currentThread().getName());
@@ -23,12 +23,12 @@ public class Scheduler2Task {
     i++;
   }
 
-  @Scheduled(fixedDelay = 6000)
+  @Scheduled(fixedDelayString = "${fixed.delay.seconds:60}000")
   public void reportCurrentTime2() throws InterruptedException {
-    System.out.println("next:" + j + "现在时间：" + LocalDateTime.now().toString() + " Thread:"
+    System.out.println("Scheduler2 next:" + j + "现在时间：" + LocalDateTime.now().toString() + " Thread:"
         + Thread.currentThread().getName());
     Thread.sleep(2 * 1000);
-    System.out.println("next:" + j + "结束时间：" + LocalDateTime.now().toString());
+    System.out.println("Scheduler2 next:" + j + "结束时间：" + LocalDateTime.now().toString());
     j++;
   }
 
