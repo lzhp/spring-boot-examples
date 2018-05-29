@@ -1,0 +1,17 @@
+service:
+  name: demo
+
+management:
+  context-path: /monitor
+  endpoints:
+    web:
+      exposure:
+        include: '*'  
+  security:
+    enabled: true  
+  httptrace: REQUEST_HEADERS,RESPONSE_HEADERS,PRINCIPAL,REMOTE_ADDRESS,SESSION_ID
+spring:
+  security:
+    user:
+      name: user
+      password: password

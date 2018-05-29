@@ -29,7 +29,7 @@ import lombok.NoArgsConstructor;
 public class EntryHead {
   
   @Id
-  @Column(name="ENTRY_HEAD")
+  @Column(name="ENTRY_ID")
   private String entryId;
   
   @Column(name="I_E_PORT")
