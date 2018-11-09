@@ -1,11 +1,21 @@
 package com.neo.entity;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class SysPermission implements Serializable {
+    /**
+   * 
+   */
+  private static final long serialVersionUID = -2674493470037239880L;
     @Id@GeneratedValue
     private Integer id;//主键.
     private String name;//名称.

@@ -2,7 +2,6 @@ package com.neo.task;
 
 import java.time.LocalDateTime;
 import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.stereotype.Component;
 
 /**
  * Created by summer on 2016/12/1.

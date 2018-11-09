@@ -60,7 +60,7 @@ public class CountryRepositoryTests {
   }
 
 
-  @Test
+  //@Test
   public void testLastUpdateTime() {
 
     log.info("begin testLastUpdateTime");
