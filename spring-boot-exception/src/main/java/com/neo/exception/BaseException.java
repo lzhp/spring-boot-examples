@@ -4,9 +4,10 @@
 package com.neo.exception;
 
 import com.google.common.base.CaseFormat;
+import com.google.common.base.MoreObjects;
+import com.google.common.base.Strings;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 /**
  * Date: 2018-04-30 21:28:53.
@@ -15,8 +16,7 @@ import lombok.ToString;
  * @description:
  */
 @Getter
-@ToString
-public class BaseException extends RuntimeException {
+public abstract class BaseException extends RuntimeException {
 
   /**
    * serialVersionUID:.
@@ -37,7 +37,7 @@ public class BaseException extends RuntimeException {
    * 关键业务单证代码
    */
   private final String bussinessId;
-  
+
   /**
    * 附加错误信息
    */
@@ -58,44 +58,59 @@ public class BaseException extends RuntimeException {
    * 业务异常
    * 
    * @param errorEnum 业务异常枚举值
-   * @param bussinessId 关键业务单证编号，如报关单号
+   * @param businessId 关键业务单证编号，如报关单号
    */
-  public <T extends Enum<T> & ErrorEnumInterface> BaseException(T errorEnum,
-      String bussinessId) {
-    this(errorEnum, bussinessId, null);
+  public <T extends Enum<T> & ErrorEnumInterface> BaseException(T errorEnum, String businessId) {
+    this(errorEnum, businessId, null);
   }
 
   /**
    * 业务异常
    * 
    * @param errorEnum 业务异常枚举值
-   * @param bussinessId 关键业务单证编号，如报关单号
+   * @param businessId 关键业务单证编号，如报关单号
    * @param cause 底层错误
    */
-  public <T extends Enum<T> & ErrorEnumInterface> BaseException(T errorEnum,
-      String bussinessId, Throwable cause) {
-    super(errorEnum.getErrorInfo().getMessage(), cause);
-    ErrorInfo errorInfo = errorEnum.getErrorInfo();
-    this.code = errorInfo.getCode();
-    this.bussinessId = bussinessId;
-    this.codeEn = CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.LOWER_CAMEL, errorEnum.name());
+  public <T extends Enum<T> & ErrorEnumInterface> BaseException(T errorEnum, String businessId,
+      Throwable cause) {
+    this(errorEnum, businessId, "", cause);
   }
 
   /**
-   * 自定义业务异常
+   * 异常
    * 
-   * @param message 错误信息
-   * @param errorCode 错误号
-   * @param codeEn 错误英文描述
-   * @param bussinessId 关键单证编号，如报关单号
-   * @param cause 父异常
+   * @param errorEnum 业务异常枚举
+   * @param businessId 关键业务单证编号
+   * @param message 错误信息描述
+   * @param cause 底层错误
    */
-  public BaseException(String message, String errorCode, String codeEn, String bussinessId,
-      Throwable cause) {
-    super(message, cause);
-    this.code = errorCode;
-    this.bussinessId = bussinessId;
-    this.codeEn = codeEn;
+  public <T extends Enum<T> & ErrorEnumInterface> BaseException(T errorEnum, String businessId,
+      String message, Throwable cause) {
+    super(errorEnum.getErrorInfo().getMessage()
+        + (Strings.isNullOrEmpty(message) ? "" : "," + message)
+        + (cause == null ? "" : ("[" + cause.getMessage()) + "]"), cause);
+    ErrorInfo errorInfo = errorEnum.getErrorInfo();
+    this.code = errorInfo.getCode();
+    if (!Strings.isNullOrEmpty(businessId)) {
+      this.bussinessId = businessId;
+    } else {
+      if (cause instanceof BaseException) {
+        this.bussinessId = ((BaseException) cause).getBussinessId();
+      } else {
+        this.bussinessId = "";
+      }
+    }
+    this.codeEn = CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.LOWER_CAMEL, errorEnum.name());
+  }
+
+
+
+  @Override
+  public String toString() {
+    return MoreObjects.toStringHelper(this).add("message", this.getMessage())
+        .add("businessId", this.getBussinessId()).add("code", this.getCode())
+        .add("codeEn", this.getCodeEn()).add("addtionalMessage", this.getAddtionalMessage())
+        .toString();
   }
 }
 

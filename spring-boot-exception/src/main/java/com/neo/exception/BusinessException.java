@@ -9,7 +9,7 @@ package com.neo.exception;
  * @author: lizhipeng.
  * @description:
  */
-public class BussinessException extends BaseException {
+public class BusinessException extends BaseException {
 
   /**
    * serialVersionUID:.
@@ -21,7 +21,7 @@ public class BussinessException extends BaseException {
    * 
    * @param errorEnum 业务异常枚举值
    */
-  public <T extends Enum<T> & ErrorEnumInterface> BussinessException(T errorEnum) {
+  public <T extends Enum<T> & ErrorEnumInterface> BusinessException(T errorEnum) {
     this(errorEnum, "");
   }
 
@@ -31,7 +31,7 @@ public class BussinessException extends BaseException {
    * @param errorEnum 业务异常枚举值
    * @param bussinessId 关键业务单证编号，如报关单号
    */
-  public <T extends Enum<T> & ErrorEnumInterface> BussinessException(T errorEnum,
+  public <T extends Enum<T> & ErrorEnumInterface> BusinessException(T errorEnum,
       String bussinessId) {
     this(errorEnum, bussinessId, null);
   }
@@ -43,23 +43,22 @@ public class BussinessException extends BaseException {
    * @param bussinessId 关键业务单证编号，如报关单号
    * @param cause 底层错误
    */
-  public <T extends Enum<T> & ErrorEnumInterface> BussinessException(T errorEnum,
-      String bussinessId, Throwable cause) {
+  public <T extends Enum<T> & ErrorEnumInterface> BusinessException(T errorEnum, String bussinessId,
+      Throwable cause) {
     super(errorEnum, bussinessId, cause);
   }
 
   /**
-   * 自定义业务异常
+   * 业务异常
    * 
-   * @param message 错误信息
-   * @param errorCode 错误号
-   * @param codeEn 错误英文描述
-   * @param bussinessId 关键单证编号，如报关单号
-   * @param cause 父异常
+   * @param errorEnum 错误枚举
+   * @param bussinessId 关键单证编号
+   * @param message 错误描述
+   * @param cause 底层错误
    */
-  public BussinessException(String message, String errorCode, String codeEn, String bussinessId,
-      Throwable cause) {
-    super(message, errorCode, codeEn, bussinessId, cause);
+  public <T extends Enum<T> & ErrorEnumInterface> BusinessException(T errorEnum, String bussinessId,
+      String message, Throwable cause) {
+    super(errorEnum, bussinessId, message, cause);
   }
 
 }
