@@ -30,25 +30,27 @@ public class HelloController {
     session.setAttribute("uid", uid);
     return session.getId();
   }
-  
-  
+
+
   @GetMapping("/testerror")
   public ResultBean<String> testError() {
-    if (1==1) {
+    int i = 1;
+    if (i == 1) {
       throw new CustomBussinessRuntimeException("测试错误", "没有单证", "测试");
     }
-      
-    return new ResultBean<String>("ok");
+
+    return new ResultBean<>("ok");
   }
-  
+
   @GetMapping("/entry")
   public ResultBean<Page<Entry>> testEntry() {
-    if (1==1) {
+    int i = 1;
+    if (i == 1) {
       throw new CustomBussinessRuntimeException("测试错误", "没有单证", "测试");
     }
-      
+
     return null;
-  }  
+  }
 
   @ExceptionHandler({CustomBussinessRuntimeException.class})
   public ResultBean<Entry> handleException(CustomBussinessRuntimeException e) {
