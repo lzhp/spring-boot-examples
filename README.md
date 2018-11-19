@@ -1,18 +1,10 @@
 # Spring Boot Examples
 
-## [Spring Boot 精选达人课程，欢迎关注！](http://gitbook.cn/gitchat/column/59f5daa149cd4330613605ba)
+fork from https://github.com/ityouknow/spring-boot-examples, 在此基础上进行了部分个人项目的示例添加，欢迎fork
 
-Demo website：http://www.ityouknow.com/
-
-[参与贡献](https://github.com/ityouknow/spring-boot-examples/issues)&nbsp;| &nbsp;[English](README_EN.md)
-
-**[github地址](https://github.com/ityouknow/spring-boot-examples)**
-
-**[码云地址](https://gitee.com/ityouknow/spring-boot-examples)**
 
 Spring boot使用的各种示例，以最简单、最实用为标准
-
-                           
+                          
 - [spring-boot-helloWorld](https://github.com/ityouknow/spring-boot-examples/tree/master/spring-boot-helloWorld)：spring-boot的helloWorld版本
 - [spring-boot-mybaits-annotation](https://github.com/ityouknow/spring-boot-examples/tree/master/spring-boot-mybatis-annotation)：注解版本
 - [spring-boot-mybaits-xml](https://github.com/ityouknow/spring-boot-examples/tree/master/spring-boot-mybatis-xml)：xml配置版本
@@ -29,7 +21,7 @@ Spring boot使用的各种示例，以最简单、最实用为标准
 - [spring-boot-package-war](https://github.com/ityouknow/spring-boot-examples/tree/master/spring-boot-package-war)：spring-boot打包成war包示例
 - [spring-boot-shiro](https://github.com/ityouknow/spring-boot-examples/tree/master/spring-boot-shiro)：springboot 整合shiro rbac示例
 
-**[Favorites-web](https://github.com/cloudfavorites/favorites-web)：云收藏（springboot实战开源项目）**
+
 
 
 
@@ -52,12 +44,4 @@ Spring boot使用的各种示例，以最简单、最实用为标准
 - [springboot(十五)：springboot+jpa+thymeleaf增删改查示例](http://www.ityouknow.com/springboot/2017/09/23/spring-boot-jpa-thymeleaf-curd.html)  
 - [springboot(十六)：使用Jenkins部署Spring Boot](http://www.ityouknow.com/springboot/2017/11/11/springboot-jenkins.html)  
 
-**[springboot实战：我们的第一款开源项目](http://www.ityouknow.com/springboot/2016/09/26/springboot%E5%AE%9E%E6%88%98-%E6%88%91%E4%BB%AC%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AC%BE%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6.html)**
-
-> 如果大家想了解关于springboot的其它方面应用，也可以以[issues](https://github.com/ityouknow/spring-boot-examples/issues)的形式反馈给我，我后续来完善。
-
-
-关注公众号：纯洁的微笑，回复"springboot"进群交流
-
-![](http://www.ityouknow.com/assets/images/keeppuresmile.jpg)
 
