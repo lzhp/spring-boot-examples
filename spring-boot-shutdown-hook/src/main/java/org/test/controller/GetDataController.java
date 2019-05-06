@@ -1,5 +1,6 @@
 package org.test.controller;
 
+import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +19,12 @@ public class GetDataController {
       @RequestParam(value = "name", required = false) String name) {
     return new ResponseEntity<>("hello" + Strings.nullToEmpty(name), HttpStatus.OK);
   }
+
+  @PostConstruct
+  public void onPostConstruct() {
+    log.info("## onPostConstruct ##");
+  }
+
 
   @PreDestroy
   public void onExit() {

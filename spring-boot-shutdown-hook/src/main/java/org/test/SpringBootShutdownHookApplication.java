@@ -1,5 +1,6 @@
 package org.test;
 
+import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,9 +14,14 @@ public class SpringBootShutdownHookApplication {
     SpringApplication.run(SpringBootShutdownHookApplication.class, args);
   }
 
+  @PostConstruct
+  public void onPostConstruct() {
+    log.info("##main onPostConstruct ##");
+  }
+
   @PreDestroy
   public void onExit() {
-    log.info("###STOPing###");
+    log.info("###STOPing##");
     try {
       Thread.sleep(5 * 1000);
     } catch (InterruptedException e) {
